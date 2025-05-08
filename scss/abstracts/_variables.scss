@@ -1,0 +1,94 @@
+// Variables file - stores common values used throughout the application
+
+// Font variables
+$font-family-main: "Geist", sans-serif;
+
+// Color variables
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-black-transparent: rgba(0, 0, 0, 0.7);
+$color-border: rgba(0, 0, 0, 0.25);
+$color-separator: rgba(113, 113, 113, 0.1);
+
+// Background colors
+$bg-window: rgba(0, 0, 0, 0.85);
+$bg-content: #1a1a1a;
+$bg-sidebar: #111;
+$bg-section: rgba(0, 0, 0, 0.3);
+$bg-toolbar: rgba(0, 0, 0, 0.2);
+$bg-input: rgba(0, 0, 0, 0.4);
+
+// Interactive element colors
+$color-hover: rgba(255, 255, 255, 0.1);
+$color-active: rgba(255, 255, 255, 0.2);
+$color-item-background: rgba(255, 255, 255, 0.05);
+
+// Border colors
+$border-light: rgba(255, 255, 255, 0.1);
+$border-lighter: rgba(255, 255, 255, 0.2);
+
+// Text colors
+$text-primary: rgba(255, 255, 255, 0.9);
+$text-secondary: rgba(255, 255, 255, 0.7);
+$text-tertiary: rgba(255, 255, 255, 0.5);
+$text-disabled: rgba(255, 255, 255, 0.4);
+
+// App-specific colors
+$color-info: #44AAFF;
+$color-orange: #FF8800;
+$color-purple: #8855FF;
+$color-yellow-bright: #C3FF00;
+
+// Folder colors
+$color-folder: #FFC300;
+$color-download: #44C85C;
+$color-documents: #00D9FF;
+$color-images: #00AAFF;
+
+// Status colors
+$color-success: #44C85C;
+$color-warning: #FFC300;
+$color-danger: #FF4040;
+$shadow-success: rgba(68, 200, 92, 0.5);
+$shadow-warning: rgba(255, 195, 0, 0.5);
+$shadow-danger: rgba(255, 64, 64, 0.5);
+$shadow-info: rgba(68, 170, 255, 0.5);
+$shadow-orange: rgba(255, 136, 0, 0.5);
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+$spacing-xl: 20px;
+$spacing-xxl: 24px;
+
+// Breakpoints
+$breakpoint-mobile: 880px;
+$breakpoint-medium-max: 1200px;
+$breakpoint-medium-min: 881px;
+$breakpoint-small-medium: 992px;
+$breakpoint-medium-small: 1050px;
+
+// Z-indices
+$z-index-base: 100;
+$z-index-taskbar: 999;
+
+// Transparency levels
+$transparency-light: 0.1;
+$transparency-medium: 0.3;
+$transparency-high: 0.7;
+
+// Borders and radius
+$border-radius-sm: 4px;
+$border-radius-md: 6px;
+$border-radius-lg: 8px;
+$border-width: 1px;
+
+// Transition speeds
+$transition-fast: 0.2s;
+$transition-medium: 0.3s;
+
+// Shadows
+$shadow-window: 0 10px 25px rgba(0, 0, 0, 0.3);
+$text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);

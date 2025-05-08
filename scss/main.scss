@@ -1,0 +1,34 @@
+// Hovedstilfil - importerer alle andre filer
+
+// Importer skrifttype
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+// Importer abstracts
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// Importer base styles
+@import 'base/typography';
+@import 'base/reset';
+@import 'base/animations';
+
+// Importer komponenter
+@import 'components/buttons';
+@import 'components/taskbar';
+@import 'components/windows';
+@import 'components/scenarios';
+@import 'components/introduction';
+
+// Importer apps
+@import 'apps/browser-app';
+@import 'apps/file-manager';
+@import 'apps/mail-app';
+@import 'apps/notes-app';
+@import 'apps/security-center';
+
+// Importer layout
+@import 'layout/desktop';
+@import 'layout/mobile';
+
+// Importer utils
+@import 'utils/helpers';

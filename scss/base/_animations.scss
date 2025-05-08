@@ -1,0 +1,65 @@
+// Animationer og overgange
+
+// Fade transition
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Slide transition
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Delete animation
+@keyframes deleteItem {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+// Highlight animation
+@keyframes highlight {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+// Animation utility classes
+.fade-in {
+  animation: fadeIn $transition-medium ease forwards;
+}
+
+.slide-up {
+  animation: slideUp $transition-medium ease forwards;
+}
+
+.new-mail-animation {
+  animation: highlight 2s ease;
+}
+
+.mail-delete-animation {
+  animation: deleteItem $transition-fast ease forwards;
+}

@@ -1,0 +1,25 @@
+// Reset og basis styles
+
+// Grundlæggende nulstilling
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-main;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+// Desktop stil
+.desktop {
+  height: 100vh;
+  @include flex-column;
+  justify-content: flex-end;
+  background-image: url("../images/bg2.png");
+  background-size: cover;
+  background-position: center;
+}

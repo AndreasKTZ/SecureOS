@@ -1,0 +1,87 @@
+// Mixins fil - genbrugelige mønstre og funktioner
+
+// Media query mixins til responsivt design
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media (min-width: $breakpoint-medium-min) and (max-width: $breakpoint-medium-max) {
+    @content;
+  }
+}
+
+@mixin small-medium-screen {
+  @media (min-width: $breakpoint-medium-min) and (max-width: $breakpoint-small-medium) {
+    @content;
+  }
+}
+
+@mixin medium-and-below {
+  @media (max-width: $breakpoint-medium-max) {
+    @content;
+  }
+}
+
+@mixin smaller-medium-screen {
+  @media (max-width: $breakpoint-medium-small) {
+    @content;
+  }
+}
+
+// Flexbox mixins
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Almindelige UI-mønstre
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: $border-radius-sm;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: $border-radius-sm;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+@mixin security-level-text($color, $shadow-color) {
+  color: $color !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 10px $shadow-color;
+}
+
+// Overgange
+@mixin transition($property: all, $duration: $transition-fast, $timing: ease) {
+  transition: $property $duration $timing;
+}

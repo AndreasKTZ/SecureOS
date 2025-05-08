@@ -1,0 +1,69 @@
+// Vindue styles
+// Indeholder basis styles for applikationsvinduer
+
+.app-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  max-width: 90vw;
+  background-color: $bg-window;
+  border-radius: $border-radius-lg;
+  border: 1px solid $border-light;
+  color: $color-white;
+  box-shadow: $shadow-window;
+  display: none; // Skjult som standard
+  overflow: hidden; // Sikrer at indhold ikke overskrider afrundede hjørner
+  
+  // Vindue header
+  &-header {
+    @include flex-between;
+    padding: $spacing-sm $spacing-md;
+    border-bottom: 1px solid $border-light;
+    
+    .window-title {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      
+      i {
+        font-size: 16px;
+      }
+      
+      span {
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+    
+    .window-controls {
+      display: flex;
+      gap: $spacing-lg;
+      
+      button {
+        background: none;
+        border: none;
+        color: $color-white;
+        cursor: pointer;
+        font-size: 12px;
+      }
+    }
+  }
+  
+  &-content {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  
+  // Vis aktivt vindue
+  &.active {
+    display: block;
+  }
+  
+  // Stil for når vinduet trækkes
+  &.dragging {
+    user-select: none;
+    opacity: 0.9;
+  }
+}

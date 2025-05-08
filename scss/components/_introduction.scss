@@ -1,0 +1,94 @@
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $bg-window;
+    @include flex-center;
+    z-index: $z-index-taskbar + 10;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(opacity visibility, $transition-medium);
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .intro-content {
+        background-color: $bg-content;
+        border-radius: $border-radius-lg;
+        padding: $spacing-xxl;
+        max-width: 600px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: $shadow-window;
+        border: $border-width solid $border-light;
+        @include scrollbar;
+
+        h1 {
+            color: $text-primary;
+            font-size: 2rem;
+            margin-bottom: $spacing-xl;
+            text-align: center;
+        }
+
+        .intro-section {
+            margin-bottom: $spacing-xl;
+
+            h2 {
+                color: $color-info;
+                font-size: 1.25rem;
+                margin-bottom: $spacing-md;
+            }
+
+            p {
+                color: $text-secondary;
+                line-height: 1.6;
+                margin-bottom: $spacing-md;
+            }
+
+            ul {
+                list-style-type: none;
+                padding-left: 0;
+                margin: $spacing-md 0;
+
+                li {
+                    color: $text-secondary;
+                    margin-bottom: $spacing-sm;
+                    padding-left: $spacing-xl;
+                    position: relative;
+
+                    &:before {
+                        content: "•";
+                        color: $color-info;
+                        position: absolute;
+                        left: 0;
+                    }
+                }
+            }
+        }
+
+        .intro-actions {
+            @include flex-center;
+            margin-top: $spacing-xxl;
+
+            button {
+                background-color: $color-info;
+                color: $color-white;
+                border: none;
+                padding: $spacing-md $spacing-xxl;
+                border-radius: $border-radius-md;
+                font-size: 1rem;
+                cursor: pointer;
+                @include transition(background-color);
+
+                &:hover {
+                    background-color: darken($color-info, 10%);
+                }
+            }
+        }
+    }
+} 

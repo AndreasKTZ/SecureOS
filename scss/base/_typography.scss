@@ -1,0 +1,42 @@
+// Typografi styles
+
+// Font import
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+// Generelle tekst styles
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-main;
+  font-weight: 500;
+  color: $color-white;
+}
+
+p {
+  font-family: $font-family-main;
+  line-height: 1.5;
+}
+
+// Specifik tekst størrelse
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+h4 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+// Iconer og specielle tekstelementer
+i {
+  vertical-align: middle;
+}

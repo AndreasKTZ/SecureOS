@@ -1,0 +1,218 @@
+// Noter app styles
+// Indeholder styles specifikt til note applikationen
+
+.notes-app {
+  width: 900px;
+  height: 600px;
+  
+  .app-window-content {
+    height: calc(100% - 30px);
+    overflow-y: auto;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    @include scrollbar;
+  }
+  
+  .notes-content {
+    padding: 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: $color-yellow-bright;
+      padding: 20px 30px 0;
+    }
+    
+    .note-section {
+      margin-bottom: 25px;
+      padding: 0 30px;
+      
+      h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+        color: $text-primary;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        
+        i {
+          color: $color-yellow-bright;
+          font-size: 16px;
+        }
+      }
+      
+      p {
+        margin-bottom: 12px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      
+      ul, ol {
+        margin-left: 20px;
+        margin-bottom: 12px;
+        
+        li {
+          margin-bottom: 10px;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.9);
+          
+          i {
+            vertical-align: middle;
+            margin-right: 6px;
+          }
+        }
+      }
+    }
+  }
+  
+  // Linkfarver
+  .notes-content a {
+    color: $color-yellow-bright !important;
+    text-decoration: underline;
+    transition: color 0.2s;
+  }
+  .notes-content a:hover,
+  .notes-content a:focus {
+    color: lighten($color-yellow-bright, 20%) !important;
+    text-decoration: underline;
+    outline: none;
+  }
+  
+  // Navigations element til noter
+  .notes-navigation {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .note-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: $border-radius-sm;
+      cursor: pointer;
+      transition: all $transition-fast;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex: 0 0 auto;
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-1px);
+      }
+      
+      &.active {
+        background-color: rgba(195, 255, 0, 0.15);
+        border-color: rgba(195, 255, 0, 0.3);
+        
+        i, span {
+          color: $color-yellow-bright;
+        }
+      }
+      
+      i {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        transition: color $transition-fast;
+      }
+      
+      span {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        transition: color $transition-fast;
+      }
+    }
+  }
+  
+  .note-content-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+    @include scrollbar;
+  }
+  
+  .notes-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: $color-white;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    font-size: 18px;
+    transition: transform $transition-fast;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  // Mobile styles for noter
+  @include mobile {
+    .notes-nav-toggle {
+      display: block;
+    }
+    
+    .notes-navigation {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 5;
+      padding: 50px 20px 20px;
+      
+      &.show-mobile {
+        display: flex;
+      }
+      
+      .note-option {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+    
+    .notes-content {
+      padding: 0;
+      
+      h1 {
+        font-size: 20px;
+        padding: 15px 20px 0;
+      }
+      
+      .note-section {
+        padding: 0 20px;
+        
+        h2 {
+          font-size: 16px;
+        }
+        
+        p, li {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

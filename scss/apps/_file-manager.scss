@@ -1,0 +1,183 @@
+// Filhåndterings styles
+// Indeholder styles specifikt til filhåndterings applikationen
+
+.file-manager {
+  width: 1000px;
+  height: 600px;
+  
+  .app-window-content {
+    display: flex;
+    height: calc(100% - 30px); // Træk header højde fra
+  }
+  
+  // Sidebar
+  &-sidebar {
+    width: 200px;
+    background-color: $bg-sidebar;
+    padding: 10px 0;
+    overflow-y: auto;
+    
+    .sidebar-section {
+      margin-bottom: 20px;
+      padding: 0 10px;
+      
+      &:not(:last-child)::after {
+        content: '';
+        display: block;
+        height: 1px;
+        background-color: $border-light;
+        margin: 10px 0;
+      }
+    }
+    
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: $border-radius-sm;
+      margin-bottom: 2px;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: $color-item-background;
+      }
+      
+      &.active {
+        background-color: $color-hover;
+      }
+      
+      i {
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+  
+  // Indholdsområde
+  &-content {
+    flex: 1;
+    padding: 15px;
+    background-color: $bg-content;
+    overflow-y: auto;
+  }
+}
+
+// Mappe- og filviser styles
+.folder-view {
+  .folder-header {
+    margin-bottom: $spacing-md;
+    
+    h2 {
+      font-size: 18px;
+      color: $color-white;
+    }
+  }
+  
+  .folder-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+  }
+  
+  .folder-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $spacing-md;
+    border-radius: $border-radius-sm;
+    background-color: $color-item-background;
+    cursor: pointer;
+    min-width: 100px;
+    text-align: center;
+    
+    &:hover {
+      background-color: $color-hover;
+    }
+    
+    &.selected {
+      background-color: $color-active;
+    }
+    
+    i {
+      font-size: 32px;
+      margin-bottom: $spacing-sm;
+    }
+    
+    span {
+      font-size: 14px;
+      word-break: break-word;
+    }
+    
+    &.drive-item {
+      width: 100%;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: left;
+      
+      i {
+        margin-right: $spacing-md;
+        margin-bottom: 0;
+      }
+      
+      .drive-info {
+        flex: 1;
+        
+        .drive-usage {
+          margin-top: $spacing-xs;
+          
+          .drive-usage-bar {
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-bottom: 2px;
+            
+            .drive-usage-fill {
+              height: 100%;
+              background-color: $color-info;
+              border-radius: 2px;
+            }
+          }
+          
+          span {
+            font-size: 12px;
+            color: $text-tertiary;
+          }
+        }
+      }
+    }
+    
+    &.file-suspicious {
+      position: relative;
+      
+      &::after {
+        content: '!';
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 16px;
+        height: 16px;
+        background-color: $color-danger;
+        color: $color-white;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  
+  .empty-folder-message {
+    width: 100%;
+    padding: $spacing-xl;
+    text-align: center;
+    color: $text-tertiary;
+    font-style: italic;
+  }
+}

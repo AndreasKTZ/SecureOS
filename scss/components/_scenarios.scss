@@ -1,0 +1,159 @@
+// Scenarie styles
+// Indeholder alle styles relateret til interaktive scenarier
+
+.scenario-container {
+  height: 100%;
+  @include flex-column;
+  
+  // Scenarie header
+  .scenario-header {
+    margin-bottom: $spacing-lg;
+    
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
+      color: #fff;
+    }
+  }
+  
+  // Scenarie brødtekst
+  .scenario-body {
+    margin-bottom: 20px;
+    
+    p {
+      line-height: 1.5;
+      margin-bottom: $spacing-md;
+      color: $text-primary;
+    }
+  }
+  
+  // Scenarie spørgsmål
+  .scenario-question {
+    margin-bottom: $spacing-xxl;
+    
+    p {
+      font-weight: 500;
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+  
+  // Valg container
+  .choices {
+    @include flex-column;
+    gap: $spacing-md;
+    margin-top: $spacing-sm;
+    margin-bottom: $spacing-xxl;
+  }
+  
+  // Scenarie afslutning
+  .scenario-ending {
+    margin-top: $spacing-xxl;
+    padding: $spacing-lg;
+    border-radius: $border-radius-sm;
+    
+    p {
+      margin-bottom: $spacing-lg;
+      font-weight: 500;
+    }
+    
+    button {
+      background-color: $color-active;
+      border: none;
+      border-radius: $border-radius-sm;
+      color: #fff;
+      padding: $spacing-sm $spacing-lg;
+      margin-right: $spacing-md;
+      cursor: pointer;
+      @include transition(background-color, $transition-fast);
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+    
+    &.ending-good {
+      background-color: rgba(68, 200, 92, 0.2);
+      border-left: 4px solid $color-success;
+    }
+    
+    &.ending-neutral {
+      background-color: rgba(255, 195, 0, 0.2);
+      border-left: 4px solid $color-warning;
+    }
+    
+    &.ending-bad {
+      background-color: rgba(255, 64, 64, 0.2);
+      border-left: 4px solid $color-danger;
+    }
+  }
+  
+  // Opsummering styles
+  .summary-container {
+    height: 100%;
+    
+    h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .choices-summary {
+      margin-bottom: $spacing-xxl;
+      max-height: calc(100% - 100px);
+      overflow-y: auto;
+    }
+    
+    .choice-item {
+      display: flex;
+      margin-bottom: $spacing-md;
+      padding: $spacing-md;
+      border-radius: $border-radius-sm;
+      background-color: $color-item-background;
+      
+      &.security-good {
+        border-left: 4px solid $color-success;
+      }
+      
+      &.security-neutral {
+        border-left: 4px solid $color-warning;
+      }
+      
+      &.security-bad {
+        border-left: 4px solid $color-danger;
+      }
+      
+      .choice-number {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: $color-hover;
+        @include flex-center;
+        margin-right: $spacing-md;
+        flex-shrink: 0;
+      }
+      
+      .choice-details {
+        flex: 1;
+        
+        .choice-question {
+          font-size: 14px;
+          margin-bottom: 4px;
+          color: $text-secondary;
+        }
+        
+        .choice-text {
+          font-size: 15px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  
+  // Tomtilstand / pladsholder
+  .placeholder-message {
+    height: 100%;
+    @include flex-center;
+    color: $text-tertiary;
+    font-style: italic;
+  }
+}

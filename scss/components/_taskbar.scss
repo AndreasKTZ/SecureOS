@@ -1,0 +1,96 @@
+// Taskbar styles
+// Indeholder alle taskbar og app dock relaterede styles
+
+.taskbar {
+  @include flex-row;
+  justify-content: space-between;
+  margin: 16px;
+  z-index: $z-index-taskbar;
+  
+  &-center {
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    background-color: $color-black-transparent;
+    padding: 12px 32px;
+    border-radius: $border-radius-lg;
+    border: 1.5px solid $color-border;
+    
+    .main,
+    .apps,
+    .project {
+      display: flex;
+      gap: 26px;
+      font-size: 26px;
+    }
+  }
+  
+  &-left {
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    background-color: $color-black-transparent;
+    padding: 20px 32px;
+    border-radius: $border-radius-lg;
+    border: 1.5px solid $color-border;
+    color: $color-white;
+    font-size: 16px;
+    
+    i {
+      color: $color-success;
+    }
+  }
+  
+  &-right {
+    @include flex-row;
+    gap: 8px;
+    
+    .info {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      background-color: $color-black-transparent;
+      padding: 20px 24px;
+      border-radius: $border-radius-lg;
+      border: 1.5px solid $color-border;
+      color: $color-white;
+      font-size: 16px;
+    }
+    
+    .alerts {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $color-black-transparent;
+      padding: 20px;
+      border-radius: $border-radius-lg;
+      border: 1.5px solid $color-border;
+      font-size: 16px;
+    }
+    
+    .app-button i {
+      color: $color-white;
+      font-size: 20px;
+    }
+
+    #upload-bg-btn {
+      position: relative;
+      
+      &:hover {
+          i {
+              color: $color-success;
+          }
+      }
+    }
+  }
+}
+
+// Separator element
+.separator {
+  width: 2px;
+  height: 40px;
+  background-color: $color-separator;
+}

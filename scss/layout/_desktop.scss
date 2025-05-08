@@ -1,0 +1,56 @@
+// Desktop layout styles
+// Indeholder primære layout elementer for desktop visning
+
+// Vindue overlay
+.window-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  
+  &.active {
+    display: block;
+  }
+}
+
+// Centrering af vinduer på skærmen
+@mixin center-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90vw;
+}
+
+// Håndtering af vindue positoner i desktop mode
+.app-window {
+  @include center-window;
+  
+  // Desktop window sizing
+  &.mail-app {
+    width: 1000px;
+    height: 580px;
+  }
+  
+  &.file-manager {
+    width: 1000px;
+    height: 600px;
+  }
+  
+  &.browser-app {
+    width: 1000px;
+    height: 580px;
+  }
+  
+  &.notes-app {
+    width: 900px;
+    height: 600px;
+  }
+  
+  &.security-center {
+    width: 900px;
+    height: 600px;
+  }
+}
