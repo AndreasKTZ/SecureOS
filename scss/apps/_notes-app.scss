@@ -5,6 +5,10 @@
   width: 900px;
   height: 600px;
   
+  .app-window-header {
+    z-index: 999;
+  }
+
   .app-window-content {
     height: calc(100% - 30px);
     overflow-y: auto;
@@ -173,8 +177,12 @@
     }
     
     .notes-navigation {
-      display: none;
-      flex-direction: column;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
       position: absolute;
       top: 0;
       left: 0;
@@ -182,7 +190,7 @@
       background-color: rgba(0, 0, 0, 0.95);
       backdrop-filter: blur(10px);
       z-index: 5;
-      padding: 50px 20px 20px;
+      padding: 75px 20px 20px;
       
       &.show-mobile {
         display: flex;
@@ -199,7 +207,7 @@
       
       h1 {
         font-size: 20px;
-        padding: 15px 20px 0;
+        padding: 60px 20px 0;
       }
       
       .note-section {
