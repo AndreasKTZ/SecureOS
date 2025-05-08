@@ -1,0 +1,658 @@
+{
+  "id": "personal-info",
+  "title": "Personlige Oplysninger",
+  "sender": "Personalekontoret",
+  "subject": "VIGTIGT! Opdater dine personaleoplysninger",
+  "steps": {
+    "start": {
+      "content": "Du har modtaget en mail fra Personalekontoret, der beder dig om at opdatere dine personlige oplysninger via et link i mailen. Der står, at dette er vigtigt for lønudbetaling og skal gøres inden for 24 timer.",
+      "question": "Hvad gør du?",
+      "choices": [
+        {
+          "text": "Klikker på link, logger ind med dit brugernavn og kodeord",
+          "next": "clicked-link",
+          "security": "bad",
+          "points": -15
+        },
+        {
+          "text": "Videresender til kollega, spørger om den er ægte",
+          "next": "forward-colleague",
+          "security": "neutral",
+          "points": 0
+        },
+        {
+          "text": "Rapporterer mail som phishing med det samme",
+          "next": "report-phishing",
+          "security": "good",
+          "points": 20
+        },
+        {
+          "text": "Sletter mailen",
+          "next": "delete-mail",
+          "security": "neutral",
+          "points": 0
+        },
+        {
+          "text": "Tjekker afsenderens mailadresse",
+          "next": "check-sender",
+          "security": "good",
+          "points": 10
+        }
+      ]
+    },
+    "clicked-link": {
+      "content": "Efter du har klikket på linket, logget ind med dit brugernavn og kodeord, bliver du ført til en side der ligner din virksomheds intranet. Der bliver du bedt om at indtaste dine personlige oplysninger, herunder CPR-nummer, bankoplysninger, og adresse.",
+      "question": "Du er nu i tvivl. Hvad gør du?",
+      "choices": [
+        {
+          "text": "Tænker ikke mere over det og indtaster alle dine oplysninger",
+          "next": "entered-info",
+          "security": "bad",
+          "points": -20
+        },
+        {
+          "text": "Kontakter IT",
+          "next": "contact-it",
+          "security": "good",
+          "points": 5
+        },
+        {
+          "text": "Ændrer adgangskode",
+          "next": "change-password",
+          "security": "good",
+          "points": 10
+        }
+      ]
+    },
+    "contact-it": {
+      "content": "Du kontakter IT-afdelingen og beskriver situationen. De bekræfter, at du er blevet udsat for et phishing-forsøg og beder dig straks om at ændre din adgangskode og ikke indtaste flere oplysninger.",
+      "question": "Hvordan vil du reagere på IT's instruktioner?",
+      "choices": [
+        {
+          "text": "Ændrer omgående adgangskode til alle arbejdssystemer",
+          "next": "immediate-password-change",
+          "security": "good",
+          "points": 15
+        },
+        {
+          "text": "Venter med at ændre adgangskode til senere på dagen",
+          "next": "delayed-password-change",
+          "security": "neutral",
+          "points": -5
+        },
+        {
+          "text": "Beder IT om at håndtere situationen for dig",
+          "next": "request-it-help",
+          "security": "neutral",
+          "points": 0
+        }
+      ]
+    },
+    "immediate-password-change": {
+      "content": "Du ændrer straks adgangskode til alle dine arbejdssystemer. IT-afdelingen bemærker din hurtige reaktion og informerer dig om, at de ikke har set tegn på uautoriseret adgang til dine konti endnu.",
+      "question": "Hvad vil du gøre for at forbedre din sikkerhed fremover?",
+      "choices": [
+        {
+          "text": "Aktiverer to-faktor autentificering på alle konti hvor det er muligt",
+          "next": "activate-2fa",
+          "security": "good",
+          "points": 15
+        },
+        {
+          "text": "Fortsætter som normalt, men er mere opmærksom på mistænkelige mails",
+          "next": "increased-vigilance",
+          "security": "neutral",
+          "points": 5
+        },
+        {
+          "text": "Melder dig til et kursus i informationssikkerhed",
+          "next": "security-training",
+          "security": "good",
+          "points": 10
+        }
+      ]
+    },
+    "activate-2fa": {
+      "content": "Du aktiverer to-faktor autentificering på alle dine arbejdskonti hvor det er muligt. Dette giver et ekstra sikkerhedslag, selv hvis dine adgangskoder skulle blive kompromitteret i fremtiden.",
+      "ending": "good",
+      "endingText": "Fremragende sikkerhedspraksis! Ved at kombinere hurtig reaktion, adgangskodeændring og to-faktor autentificering har du markant øget din sikkerhed mod fremtidige phishing-angreb."
+    },
+    "increased-vigilance": {
+      "content": "Du beslutter at fortsætte dit arbejde som normalt, men være mere opmærksom på mistænkelige emails fremover. Dette er et skridt i den rigtige retning, men der er mere du kunne gøre for at forbedre din sikkerhed.",
+      "ending": "neutral",
+      "endingText": "God reaktion på hændelsen, men husk at proaktive sikkerhedsforanstaltninger som to-faktor autentificering og regelmæssige adgangskodeændringer er vigtige dele af en solid sikkerhedsstrategi."
+    },
+    "security-training": {
+      "content": "Du melder dig til et kursus i informationssikkerhed arrangeret af din virksomhed. Her lærer du om de nyeste phishing-teknikker, hvordan man genkender dem, og bedste praksis for at beskytte dig selv og virksomheden.",
+      "ending": "good",
+      "endingText": "Fremragende beslutning! Uddannelse er et kraftfuldt værktøj mod cybertrusler. Ved at forbedre din viden og færdigheder bidrager du ikke kun til din egen sikkerhed, men også til virksomhedens overordnede sikkerhedskultur."
+    },
+    "delayed-password-change": {
+      "content": "Du beslutter at vente med at ændre din adgangskode til senere på dagen. Nogle timer senere modtager du en besked fra IT-afdelingen om mistænkelig aktivitet på din konto.",
+      "question": "Hvordan reagerer du nu?",
+      "choices": [
+        {
+          "text": "Panikker og slukker din computer",
+          "next": "panic-shutdown",
+          "security": "bad",
+          "points": -10
+        },
+        {
+          "text": "Ændrer omgående alle dine adgangskoder og kontakter IT",
+          "next": "urgent-password-change",
+          "security": "good",
+          "points": 5
+        },
+        {
+          "text": "Ignorerer advarslen, da du ikke tror, det er relateret",
+          "next": "ignore-warning",
+          "security": "bad",
+          "points": -20
+        }
+      ]
+    },
+    "panic-shutdown": {
+      "content": "Du panikker og slukker din computer. Dette stopper ikke den mistænkelige aktivitet, da hackeren allerede har adgang til din konto online. IT-afdelingen må gribe ind for at afbryde adgangen og sikre din konto.",
+      "ending": "bad",
+      "endingText": "At slukke din computer løser ikke problemet med kompromitterede konti. I sikkerhedshændelser er det afgørende at følge IT's anvisninger præcist og reagere hurtigt med de rigtige handlinger."
+    },
+    "urgent-password-change": {
+      "content": "Du ændrer omgående alle dine adgangskoder og kontakter IT-afdelingen. De handler hurtigt og hjælper dig med at sikre dine konti. Selvom der var mistænkelig aktivitet, var dit hurtige respons afgørende for at begrænse skaden.",
+      "ending": "neutral",
+      "endingText": "God håndtering af situationen, men husk at forsinket reaktion på sikkerhedsadvarsler kan have alvorlige konsekvenser. Det er altid bedre at handle med det samme, når det gælder informationssikkerhed."
+    },
+    "ignore-warning": {
+      "content": "Du ignorerer advarslen fra IT, da du ikke tror, den er relateret til tidligere phishing-mail. I løbet af dagen bliver flere af dine konti kompromitteret, og følsomme arbejdsdokumenter bliver tilgået af uautoriserede personer.",
+      "ending": "bad",
+      "endingText": "En kritisk fejl i sikkerhedspraksis. Advarsler fra IT-afdelingen bør altid tages alvorligt, især efter at du har klikket på et potentielt phishing-link. Hurtig reaktion er afgørende for at minimere skaden."
+    },
+    "request-it-help": {
+      "content": "Du beder IT-afdelingen om at håndtere hele situationen for dig. De forklarer, at selvom de kan hjælpe, er det dit ansvar at ændre dine adgangskoder og følge sikkerhedsprotokoller.",
+      "question": "Hvordan reagerer du på denne information?",
+      "choices": [
+        {
+          "text": "Tager ansvar og følger deres instruktioner med det samme",
+          "next": "take-responsibility",
+          "security": "good",
+          "points": 10
+        },
+        {
+          "text": "Føler dig fortørnet over at skulle håndtere det selv",
+          "next": "feel-indignant",
+          "security": "bad",
+          "points": -10
+        },
+        {
+          "text": "Beder en kollega om at hjælpe dig med at ændre adgangskoder",
+          "next": "ask-colleague-help",
+          "security": "neutral",
+          "points": -5
+        }
+      ]
+    },
+    "take-responsibility": {
+      "content": "Du accepterer dit ansvar og følger IT-afdelingens instruktioner omhyggeligt. Du ændrer alle dine adgangskoder og aktiverer ekstra sikkerhedsforanstaltninger på dine konti.",
+      "ending": "good",
+      "endingText": "God sikkerhedspraksis! Selvom IT-afdelingen kan give råd og support, er den enkelte medarbejders handlinger afgørende for effektiv informationssikkerhed. Dit ejerskab over situationen bidrog til at beskytte både dig selv og virksomheden."
+    },
+    "feel-indignant": {
+      "content": "Du føler dig fortørnet over at skulle håndtere sikkerhedsproblemerne selv og tøver med at følge IT's instruktioner fuldt ud. Denne forsinkelse giver potentielle angribere mere tid til at udnytte den kompromitterede adgang.",
+      "ending": "bad",
+      "endingText": "Informationssikkerhed er et delt ansvar. Selvom IT kan hjælpe med tekniske aspekter, er den enkelte medarbejders handlinger og holdninger afgørende for effektiv beskyttelse mod trusler."
+    },
+    "ask-colleague-help": {
+      "content": "Du beder en kollega om at hjælpe dig med at ændre dine adgangskoder. Dette er problematisk fra et sikkerhedsperspektiv, da det involverer deling af adgangskoder eller kontooplysninger med andre.",
+      "ending": "neutral",
+      "endingText": "Selvom det kan være fristende at søge hjælp fra kolleger med tekniske udfordringer, er deling af adgangskoder eller adgang til dine konti aldrig god sikkerhedspraksis. Kontakt altid IT for officiel support."
+    },
+    "entered-info": {
+      "content": "Du indtaster alle dine personlige oplysninger uden at tænke mere over det. Få dage senere opdager du uautoriserede transaktioner på din bankkonto, og din HR-afdeling kontakter dig angående mistænkelig aktivitet med dit CPR-nummer.",
+      "question": "Hvad vil du gøre nu?",
+      "choices": [
+        {
+          "text": "Rapporterer hændelsen til IT og følger deres råd",
+          "next": "report-after-breach",
+          "security": "good",
+          "points": 5
+        },
+        {
+          "text": "Forsøger at håndtere situationen selv uden at fortælle nogen",
+          "next": "handle-alone",
+          "security": "bad",
+          "points": -15
+        },
+        {
+          "text": "Benægter ethvert ansvar og skylder på IT-systemerne",
+          "next": "deny-responsibility",
+          "security": "bad",
+          "points": -20
+        }
+      ]
+    },
+    "report-after-breach": {
+      "content": "Selvom skaden allerede er sket, tager du ansvar og rapporterer hændelsen til IT-afdelingen. De kan hjælpe med at begrænse den videre skade og implementere sikkerhedsforanstaltninger.",
+      "ending": "neutral",
+      "endingText": "God beslutning at rapportere hændelsen, men husk at forebyggelse er altid bedre end håndtering af et sikkerhedsbrud. Vær skeptisk over for uventede anmodninger om personlige oplysninger, selv hvis de ser officielle ud."
+    },
+    "handle-alone": {
+      "content": "Du forsøger at håndtere identitetstyveriet på egen hånd uden at informere din arbejdsplads. Dette komplicerer situationen, da virksomheden ikke kan implementere nødvendige sikkerhedsforanstaltninger eller advare andre potentielle ofre.",
+      "ending": "bad",
+      "endingText": "Sikkerhedshændelser bør altid rapporteres til de relevante afdelinger. Ved at forsøge at håndtere situationen alene, risikerer du større skade for både dig selv og virksomheden."
+    },
+    "deny-responsibility": {
+      "content": "Du benægter ethvert ansvar og skylder på IT-systemerne. Gennemgang af logs afslører dog, at du indtastede dine oplysninger på et phishing-websted. Din mangel på samarbejde forsinker håndteringen af sikkerhedsbruddet.",
+      "ending": "bad",
+      "endingText": "Ærlighed og ansvarlighed er afgørende i sikkerhedshændelser. Benægtelse og bebrejdelse forværrer ofte situationen og forhindrer effektiv håndtering af sikkerhedstruslen."
+    },
+    "change-password": {
+      "content": "Du beslutter at ændre din adgangskode, da du mistænker, at du kan have kompromitteret den ved at logge ind på det mistænkelige link. Dette er et godt første skridt, men er det nok?",
+      "question": "Hvad vil du gøre efter at have ændret din adgangskode?",
+      "choices": [
+        {
+          "text": "Informerer IT-afdelingen om den mistænkelige side",
+          "next": "inform-it-after-password",
+          "security": "good",
+          "points": 15
+        },
+        {
+          "text": "Tjekker din konto for uautoriseret aktivitet",
+          "next": "check-activity",
+          "security": "good",
+          "points": 10
+        },
+        {
+          "text": "Fortsætter dit arbejde uden yderligere handling",
+          "next": "continue-no-action",
+          "security": "neutral",
+          "points": -5
+        }
+      ]
+    },
+    "inform-it-after-password": {
+      "content": "Efter at have ændret din adgangskode kontakter du IT-afdelingen om den mistænkelige hjemmeside. De takker dig for din årvågenhed og sender en advarsel til alle medarbejdere om phishing-forsøget.",
+      "question": "IT beder dig om at deltage i en kort sikkerhedsbriefing. Hvordan reagerer du?",
+      "choices": [
+        {
+          "text": "Deltager entusiastisk og deler din erfaring med kolleger",
+          "next": "participate-enthusiastically",
+          "security": "good",
+          "points": 15
+        },
+        {
+          "text": "Deltager, men holder dig passiv under mødet",
+          "next": "participate-passively",
+          "security": "neutral",
+          "points": 5
+        },
+        {
+          "text": "Finder en undskyldning for ikke at deltage",
+          "next": "avoid-briefing",
+          "security": "bad",
+          "points": -10
+        }
+      ]
+    },
+    "participate-enthusiastically": {
+      "content": "Du deltager aktivt i sikkerhedsbriefingen og deler din erfaring med phishing-forsøget. Din åbenhed hjælper dine kolleger med at forstå, hvordan de kan genkende og reagere på lignende trusler.",
+      "ending": "good",
+      "endingText": "Fremragende sikkerhedsadfærd! Ved at dele din erfaring bidrager du til at opbygge en stærk sikkerhedskultur i virksomheden. Åben kommunikation om sikkerhedshændelser hjælper alle med at lære og forbedre sig."
+    },
+    "participate-passively": {
+      "content": "Du deltager i sikkerhedsbriefingen, men holder dig passiv under mødet. Selvom du får værdifuld information, går virksomheden glip af din indsigt og erfaring, som kunne have hjulpet andre.",
+      "ending": "neutral",
+      "endingText": "Det er positivt, at du deltog i briefingen, men husk at deling af erfaringer er afgørende for at opbygge en stærk sikkerhedskultur. Dine oplevelser kan hjælpe kolleger med at undgå lignende faldgruber."
+    },
+    "avoid-briefing": {
+      "content": "Du finder en undskyldning for ikke at deltage i sikkerhedsbriefingen. Denne beslutning forhindrer både dig i at lære mere om sikkerhed og dine kolleger i at lære af din erfaring.",
+      "ending": "bad",
+      "endingText": "Sikkerhedstræning er en afgørende del af en robust sikkerhedskultur. Ved at undgå sådanne muligheder for læring, forbliver du og potentielt dine kolleger sårbare over for fremtidige sikkerhedstrusler."
+    },
+    "check-activity": {
+      "content": "Du tjekker omhyggeligt din konto for tegn på uautoriseret aktivitet efter at have ændret din adgangskode. Heldigvis finder du ingen mistænkelige handlinger, men du er bekymret for, om du burde gøre mere.",
+      "question": "Hvad vil du gøre nu?",
+      "choices": [
+        {
+          "text": "Rapporterer hændelsen til IT-sikkerhedsteamet",
+          "next": "report-to-security",
+          "security": "good",
+          "points": 15
+        },
+        {
+          "text": "Installerer et antivirusprogram og scanner din computer",
+          "next": "install-antivirus",
+          "security": "good",
+          "points": 10
+        },
+        {
+          "text": "Føler dig lettet og fortsætter dit normale arbejde",
+          "next": "feel-relieved",
+          "security": "neutral",
+          "points": 0
+        }
+      ]
+    },
+    "report-to-security": {
+      "content": "Du rapporterer hændelsen til IT-sikkerhedsteamet, selvom du ikke har set tegn på uautoriseret aktivitet. De værdsætter din proaktive tilgang og hjælper dig med at implementere yderligere sikkerhedsforanstaltninger.",
+      "ending": "good",
+      "endingText": "Fremragende sikkerhedspraksis! Selv når der ikke er synlige tegn på skade, er det vigtigt at rapportere potentielle sikkerhedshændelser. Din proaktive handling hjælper med at beskytte både dig selv og virksomheden."
+    },
+    "install-antivirus": {
+      "content": "Du installerer et antivirusprogram og scanner din computer for malware. Dette er et godt sikkerhedstiltag, men det løser ikke nødvendigvis problemet med kompromitterede legitimationsoplysninger på nettet.",
+      "ending": "neutral",
+      "endingText": "God proaktiv handling, men husk at phishing-angreb ofte handler om at stjæle legitimationsoplysninger, ikke om at installere malware. Det er også vigtigt at rapportere sådanne hændelser til IT-sikkerhedsteamet."
+    },
+    "feel-relieved": {
+      "content": "Du føler dig lettet over ikke at have set tegn på uautoriseret aktivitet og fortsætter dit normale arbejde uden at tage yderligere skridt. Dette efterlader potentielt sikkerhedshuller uadresserede.",
+      "ending": "neutral",
+      "endingText": "At ændre adgangskode var et godt første skridt, men husk at rapportering af sikkerhedshændelser til IT er afgørende, selv når der ikke er synlig skade. Dette hjælper virksomheden med at beskytte alle medarbejdere."
+    },
+    "continue-no-action": {
+      "content": "Efter at have ændret din adgangskode fortsætter du dit arbejde uden at tage yderligere skridt. En uge senere opdager IT-afdelingen, at flere medarbejdere er blevet udsat for samme phishing-kampagne.",
+      "ending": "neutral",
+      "endingText": "At ændre adgangskode var et godt første skridt, men ved ikke at rapportere hændelsen mistede virksomheden muligheden for at advare andre medarbejdere. Husk at sikkerhed er et kollektivt ansvar."
+    },
+    "forward-colleague": {
+      "content": "Du videresender mailen til en kollega og spørger, om den er ægte. Kollegaen svarer: \"Det ser officielt ud – jeg klikkede på det og opdaterede mine oplysninger.\"",
+      "question": "Hvad gør du, efter at høre at din kollega allerede har klikket på linket?",
+      "choices": [
+        {
+          "text": "Klikker også på linket, siden din kollega gjorde det",
+          "next": "follow-colleague-bad-example",
+          "security": "bad",
+          "points": -15
+        },
+        {
+          "text": "Advarer din kollega og rapporterer til IT",
+          "next": "warn-and-report",
+          "security": "good",
+          "points": 20
+        },
+        {
+          "text": "Ignorerer det og beslutter dig for ikke at klikke",
+          "next": "ignore-but-safe",
+          "security": "neutral",
+          "points": 5
+        }
+      ]
+    },
+    "follow-colleague-bad-example": {
+      "content": "Du beslutter at klikke på linket, fordi din kollega allerede har gjort det uden problemer. Dette er en farlig antagelse, da din kollega måske allerede er blevet offer for et phishing-angreb uden at vide det.",
+      "ending": "bad",
+      "endingText": "Det er aldrig en god idé at følge andres eksempel i sikkerhedsspørgsmål uden at verificere først. Kolleger kan have forskellige sikkerhedsniveauer eller måske ikke være klar over, at de allerede er blevet kompromitteret."
+    },
+    "warn-and-report": {
+      "content": "Du advarer straks din kollega om den potentielle phishing-mail og rapporterer begge tilfælde til IT-afdelingen. De handler hurtigt for at begrænse skaden og hjælpe din kollega med at sikre sine konti.",
+      "question": "IT-afdelingen takker dig for din årvågenhed og spørger, om du vil hjælpe med at øge bevidstheden om phishing i din afdeling. Hvad svarer du?",
+      "choices": [
+        {
+          "text": "Tilbyder at være sikkerhedsambassadør for din afdeling",
+          "next": "become-security-ambassador",
+          "security": "good",
+          "points": 20
+        },
+        {
+          "text": "Deltager i et sikkerhedsmøde for at dele din erfaring",
+          "next": "share-experience-meeting",
+          "security": "good",
+          "points": 15
+        },
+        {
+          "text": "Afslår høfligt på grund af travlhed med andre opgaver",
+          "next": "decline-politely",
+          "security": "neutral",
+          "points": 0
+        }
+      ]
+    },
+    "become-security-ambassador": {
+      "content": "Du accepterer at blive sikkerhedsambassadør for din afdeling. I denne rolle hjælper du med at fremme god sikkerhedspraksis, besvarer kollegers spørgsmål og er første kontaktpunkt for sikkerhedsproblemer.",
+      "ending": "good",
+      "endingText": "Fremragende engagement! Ved at påtage dig en aktiv rolle i virksomhedens sikkerhedskultur, bidrager du væsentligt til at beskytte alle mod cybertrusler. Din indsats vil have en varig positiv effekt på organisationens sikkerhedsstilling."
+    },
+    "share-experience-meeting": {
+      "content": "Du indvilliger i at deltage i et sikkerhedsmøde, hvor du deler din erfaring med phishing-forsøget. Din historie og indsigt hjælper kolleger med at forstå, hvordan de kan genkende og reagere på lignende trusler.",
+      "ending": "good",
+      "endingText": "Meget god beslutning! Ved at dele din erfaring bidrager du til at opbygge en stærk sikkerhedskultur i virksomheden. Personlige historier er ofte mere effektive til at fremme sikkerhedsbevidsthed end generelle advarsler."
+    },
+    "decline-politely": {
+      "content": "Du afslår høfligt tilbuddet om at hjælpe med at øge sikkerhedsbevidstheden på grund af travlhed med andre opgaver. Selvom du har hjulpet i denne situation, går virksomheden glip af din potentielle bidrag til den bredere sikkerhedskultur.",
+      "ending": "neutral",
+      "endingText": "Det er forståeligt at have andre prioriteter, men husk at bidrag til sikkerhedskulturen kan have stor værdi. Overvej at engagere dig i sikkerhedsinitiativer, når din arbejdsbyrde tillader det."
+    },
+    "ignore-but-safe": {
+      "content": "Du ignorerer din kollegas svar og beslutter dig for ikke at klikke på linket. Selvom dette beskytter dig, gør du intet for at hjælpe din kollega, som potentielt har kompromitteret sine oplysninger.",
+      "ending": "neutral",
+      "endingText": "At beskytte dig selv er godt, men sikkerhed er også et kollektivt ansvar. Ved at advare din kollega og rapportere til IT kunne du have hjulpet med at begrænse skaden og beskytte andre i organisationen."
+    },
+    "delete-mail": {
+      "content": "Du sletter mailen uden at foretage dig yderligere. Senere hører du, at flere kolleger har klikket på et lignende link og fået deres konti kompromitteret i et phishing-angreb.",
+      "question": "Hvad gør du, efter at have hørt om dine kollegers problemer?",
+      "choices": [
+        {
+          "text": "Indrømmer at man skulle have rapporteret det",
+          "next": "admit-should-report",
+          "security": "neutral",
+          "points": 5
+        },
+        {
+          "text": "Synes ikke det er ens ansvar",
+          "next": "not-my-responsibility",
+          "security": "bad",
+          "points": -10
+        },
+        {
+          "text": "Tilbyder at hjælpe kolleger med sikkerhedsråd fremover",
+          "next": "offer-security-advice",
+          "security": "good",
+          "points": 10
+        }
+      ]
+    },
+    "admit-should-report": {
+      "content": "Du indser, at du burde have rapporteret den mistænkelige mail til IT-afdelingen. Denne viden kunne have hjulpet med at forhindre, at dine kolleger blev ofre for phishing-angrebet.",
+      "ending": "neutral",
+      "endingText": "Det er vigtigt at rapportere sikkerhedstrusler, selv når du selv undgår dem. Sikkerhed er et fælles ansvar i organisationen."
+    },
+    "not-my-responsibility": {
+      "content": "Du mener ikke, at det er dit ansvar at rapportere mistænkelige emails, så længe du selv undgår faren. Denne holdning svækker virksomhedens samlede sikkerhedsstilling.",
+      "ending": "bad",
+      "endingText": "Informationssikkerhed er et fælles ansvar. Ved ikke at dele viden om trusler, udsætter du kolleger og virksomheden for risici."
+    },
+    "offer-security-advice": {
+      "content": "Efter at have indset konsekvenserne af ikke at rapportere truslen, tilbyder du at hjælpe dine kolleger med sikkerhedsråd fremover. Du forklarer, hvordan du genkendte phishing-forsøget og beslutter dig for at være mere proaktiv omkring sikkerhed.",
+      "ending": "good",
+      "endingText": "God beslutning om at lære af erfaringen og hjælpe andre fremover! Selvom den oprindelige handling ikke var optimal, viser dit engagement nu en forståelse for det kollektive ansvar for sikkerhed."
+    },
+    "check-sender": {
+      "content": "Du undersøger afsenderens email-adresse og ser, at den er 'personalekontor@secure-mail.co' i stedet for virksomhedens normale domæne. Dette er mistænkeligt.",
+      "question": "Hvad vil du gøre nu, hvor du har opdaget den mistænkelige afsenderadresse?",
+      "choices": [
+    {
+      "text": "Klikker på link, selvom du har opdaget mistænkelig afsender",
+      "next": "clicked-link-after-check",
+      "security": "bad",
+      "points": -20
+    },
+    {
+      "text": "Rapporterer mailen som phishing til IT-sikkerhed",
+      "next": "report-after-check",
+      "security": "good",
+      "points": 15
+    },
+    {
+      "text": "Undersøger yderligere ved at google afsenderdomænet",
+      "next": "investigate-domain",
+      "security": "good",
+      "points": 10
+    },
+    {
+      "text": "Sletter mailen uden yderligere handling",
+      "next": "delete-after-check",
+      "security": "neutral",
+      "points": 0
+    }
+  ]
+},
+"clicked-link-after-check": {
+  "content": "Til trods for at have opdaget den mistænkelige afsenderadresse, vælger du at klikke på linket alligevel. Dette er en meget risikabel handling, da du allerede har identificeret et klart advarselstegn.",
+  "ending": "bad",
+  "endingText": "At klikke på links fra afsendere med mistænkelige domæner er meget risikabelt. Når du har identificeret et advarselstegn, bør du altid være på den sikre side og undgå at interagere med indholdet."
+},
+"report-after-check": {
+  "content": "Du rapporterer straks mailen som phishing til IT-sikkerhedsteamet og fremhæver den mistænkelige afsenderadresse. IT bekræfter, at det er et phishing-forsøg målrettet virksomheden.",
+  "question": "IT-sikkerhed spørger, om du har observeret andre mistænkelige mails. Hvad gør du?",
+  "choices": [
+    {
+      "text": "Gennemgår din indbakke grundigt for andre mistænkelige mails",
+      "next": "thorough-inbox-check",
+      "security": "good",
+      "points": 15
+    },
+    {
+      "text": "Tilbyder at advare dit team om phishing-kampagnen",
+      "next": "warn-team",
+      "security": "good",
+      "points": 10
+    },
+    {
+      "text": "Fortæller at du ikke har set andre og afslutter samtalen",
+      "next": "end-conversation",
+      "security": "neutral",
+      "points": 0
+    }
+  ]
+},
+"thorough-inbox-check": {
+  "content": "Du gennemgår omhyggeligt din indbakke og finder faktisk en anden mistænkelig mail med lignende tema, som du overså tidligere. Du rapporterer også denne til IT-sikkerhed, hvilket hjælper dem med at forstå omfanget af phishing-kampagnen.",
+  "ending": "good",
+  "endingText": "Fremragende sikkerhedsadfærd! Din grundige gennemgang og rapportering har givet IT-sikkerhed værdifuld information om phishing-kampagnen, hvilket hjælper med at beskytte hele organisationen."
+},
+"warn-team": {
+  "content": "Du tilbyder proaktivt at advare dit team om phishing-kampagnen. Med godkendelse fra IT-sikkerhed sender du en informativ besked til dine kolleger om, hvad de skal være opmærksomme på, og hvordan de skal rapportere mistænkelige mails.",
+  "ending": "good",
+  "endingText": "Meget god sikkerhedspraksis! Ved at sprede awareness i dit team bidrager du aktivt til virksomhedens sikkerhedskultur og hjælper med at beskytte dine kolleger mod phishing-angreb."
+},
+"end-conversation": {
+  "content": "Du fortæller IT-sikkerhed, at du ikke har set andre mistænkelige mails og afslutter samtalen. Selvom din rapportering af den oprindelige mail var værdifuld, går du måske glip af andre mistænkelige mails i din indbakke.",
+  "ending": "neutral",
+  "endingText": "God indsats med at rapportere den mistænkelige mail, men husk at sikkerhedstrusler ofte kommer i bølger. At være ekstra opmærksom og grundig efter at have opdaget én trussel kan hjælpe med at afsløre relaterede angrebsforsøg."
+},
+"investigate-domain": {
+  "content": "Du beslutter at undersøge afsenderdomænet 'secure-mail.co' ved at google det. Du finder ud af, at det er et kendt domæne, der bruges til phishing-angreb, og flere sikkerhedsblogs advarer om det.",
+  "question": "Nu hvor du har bekræftet, at det er et phishing-forsøg, hvad gør du?",
+  "choices": [
+    {
+      "text": "Rapporterer detaljerede fund til IT-sikkerhed",
+      "next": "report-detailed-findings",
+      "security": "good",
+      "points": 20
+    },
+    {
+      "text": "Deler information om phishing-domænet med kolleger",
+      "next": "share-with-colleagues",
+      "security": "good",
+      "points": 5
+    },
+    {
+      "text": "Markerer mailen som spam og sletter den",
+      "next": "mark-as-spam",
+      "security": "neutral",
+      "points": 0
+    }
+  ]
+},
+"report-detailed-findings": {
+  "content": "Du rapporterer dine detaljerede fund til IT-sikkerhed, inklusive links til sikkerhedsblogs, der advarer om domænet. Denne omfattende information hjælper dem med at forbedre deres filtre og beskytte organisationen mod lignende angreb.",
+  "ending": "good",
+  "endingText": "Fremragende sikkerhedsadfærd! Din grundige research og detaljerede rapportering giver IT-sikkerhed værdifuld kontekst om truslen. Denne type proaktiv indsats styrker organisationens samlede sikkerhedsstilling markant."
+},
+"share-with-colleagues": {
+  "content": "Du deler information om phishing-domænet direkte med dine kolleger uden først at konsultere IT-sikkerhed. Selvom intentionen er god, kan denne tilgang skabe forvirring eller panik uden officiel vejledning.",
+  "ending": "neutral",
+  "endingText": "Det er positivt at ville beskytte kolleger, men sikkerhedskommunikation bør ideelt koordineres gennem IT-sikkerhed for at sikre korrekt information og undgå forvirring. Rapporter altid først til IT-sikkerhed."
+},
+"mark-as-spam": {
+  "content": "Du markerer simpelthen mailen som spam og sletter den. Dette hjælper med at træne spam-filteret på din personlige konto, men gør intet for at advare andre i organisationen om truslen.",
+  "ending": "neutral",
+  "endingText": "At markere phishing som spam beskytter dig selv, men giver ikke IT-sikkerhed mulighed for at reagere på truslen og beskytte andre. Husk at rapportere sikkerhedstrusler, ikke bare filtrere dem væk."
+},
+"delete-after-check": {
+  "content": "Efter at have identificeret den mistænkelige afsenderadresse, sletter du mailen uden at foretage dig yderligere. Du har beskyttet dig selv, men har ikke bidraget til at beskytte resten af organisationen.",
+  "question": "Senere på dagen hører du en kollega nævne, at de har fået en lignende mail. Hvad gør du?",
+  "choices": [
+    {
+      "text": "Advarer dem om at det er phishing og forklarer hvorfor",
+      "next": "warn-colleague-after-delete",
+      "security": "good",
+      "points": 10
+    },
+    {
+      "text": "Nævner at du også fik mailen, men siger intet mere",
+      "next": "mention-only",
+      "security": "neutral",
+      "points": -5
+    },
+    {
+      "text": "Foreslår at I begge rapporterer det til IT-sikkerhed",
+      "next": "suggest-joint-report",
+      "security": "good",
+      "points": 15
+    }
+  ]
+},
+"warn-colleague-after-delete": {
+  "content": "Du advarer din kollega om, at mailen er phishing, og forklarer hvorfor afsenderadressen er mistænkelig. Din kollega takker dig og undgår at klikke på linket.",
+  "ending": "good",
+  "endingText": "God handling at advare din kollega! Selvom det ville have været bedre at rapportere til IT-sikkerhed med det samme, har du stadig bidraget til at beskytte en kollega mod phishing-angrebet."
+},
+"mention-only": {
+  "content": "Du nævner blot, at du også modtog mailen, men giver ingen advarsler eller forklaringer. Din kollega åbner måske linket og bliver offer for phishing-angrebet.",
+  "ending": "bad",
+  "endingText": "At undlade at dele viden om sikkerhedstrusler, når du har muligheden, kan udsætte kolleger for risiko. Del altid dine observationer om potentielle sikkerhedstrusler, især når andre kan være i fare."
+},
+"suggest-joint-report": {
+  "content": "Du foreslår, at I begge rapporterer phishing-mailen til IT-sikkerhed med det samme. Dette giver IT-sikkerhed bedre indsigt i omfanget af phishing-kampagnen og målrettede afdelinger.",
+  "ending": "good",
+  "endingText": "Fremragende forslag! Ved at koordinere rapportering med din kollega giver I IT-sikkerhed værdifuld information om phishing-kampagnens omfang. Denne type samarbejde styrker organisationens samlede sikkerhed."
+},
+"report-phishing": {
+  "content": "Du rapporterer straks mailen som phishing til IT-sikkerhedsteamet uden at klikke på noget link. De takker dig for din årvågenhed og bekræfter, at det var et forsøg på phishing.",
+  "question": "IT spørger, om du vil være en del af deres 'sikkerhedsambassadør'-program. Hvad svarer du?",
+  "choices": [
+    {
+      "text": "Accepterer entusiastisk og melder dig til træning",
+      "next": "accept-ambassador",
+      "security": "good",
+      "points": 20
+    },
+    {
+      "text": "Accepterer, men beder om at det ikke tager for meget tid",
+      "next": "accept-with-condition",
+      "security": "neutral",
+      "points": 10
+    },
+    {
+      "text": "Afslår høfligt på grund af andre arbejdsforpligtelser",
+      "next": "decline-ambassador",
+      "security": "neutral",
+      "points": 0
+    }
+  ]
+},
+"accept-ambassador": {
+  "content": "Du accepterer entusiastisk at blive 'sikkerhedsambassadør' og melder dig til den tilbudte træning. I denne rolle vil du hjælpe med at fremme god sikkerhedspraksis i din afdeling og være et kontaktpunkt for sikkerhedsspørgsmål.",
+  "ending": "good",
+  "endingText": "Fremragende engagement i informationssikkerhed! Som sikkerhedsambassadør vil du spille en vigtig rolle i at styrke virksomhedens sikkerhedskultur og hjælpe kolleger med at navigere i det komplekse sikkerhedslandskab."
+},
+"accept-with-condition": {
+  "content": "Du accepterer at blive 'sikkerhedsambassadør', men udtrykker bekymring for tidsforbrug. IT forsikrer dig om, at rollen kan tilpasses din arbejdsbyrde, men dit delvise engagement kan begrænse effektiviteten.",
+  "ending": "neutral",
+  "endingText": "Det er positivt, at du accepterer rollen, men husk at effektiv sikkerhed kræver dedikation. Selv med begrænsede ressourcer kan du stadig gøre en forskel, men fuldt engagement ville give større sikkerhedsfordele."
+},
+"decline-ambassador": {
+  "content": "Du afslår høfligt tilbuddet om at blive 'sikkerhedsambassadør' på grund af andre arbejdsforpligtelser. Dette er forståeligt, men virksomheden går glip af din potentielle bidrag til sikkerhedskulturen.",
+  "ending": "neutral",
+  "endingText": "Det er forståeligt at prioritere dine kerneopgaver, men husk at sikkerhed er alles ansvar. Selv små bidrag til virksomhedens sikkerhedskultur kan have stor betydning for den samlede beskyttelse."
+}
+}
+}

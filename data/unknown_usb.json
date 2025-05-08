@@ -1,0 +1,87 @@
+{
+    "id": "unknown-usb",
+    "title": "Ukendt USB-enhed",
+    "sender": "Pathfinder",
+    "subject": "Håndtering af ukendt USB-enhed",
+    "steps": {
+      "start": {
+        "content": "Du har fundet en USB-enhed på kontoret, og ingen ved, hvem den tilhører. Hvad vælger du at gøre?",
+        "question": "Hvordan håndterer du situationen?",
+        "choices": [
+          {
+            "text": "Tilslut USB-enheden til din computer for at finde ejeren",
+            "next": "connect-usb",
+            "security": "bad",
+            "points": -15
+          },
+          {
+            "text": "Afgiv USB-enheden til IT-afdelingen",
+            "next": "hand-over-it",
+            "security": "good",
+            "points": 20
+          },
+          {
+            "text": "Smid USB-enheden ud",
+            "next": "throw-away",
+            "security": "neutral",
+            "points": 0
+          }
+        ]
+      },
+  
+      "connect-usb": {
+        "content": "Du tilslutter USB-enheden til din computer. Pludselig opfører din computer sig underligt, og du bemærker ukendte programmer, der starter automatisk.",
+        "question": "Hvad gør du nu?",
+        "choices": [
+          {
+            "text": "Ignorer det og fortsæt arbejdet",
+            "next": "ignore-issues",
+            "security": "bad",
+            "points": -20
+          },
+          {
+            "text": "Sluk computeren og kontakt IT med det samme",
+            "next": "contact-it-after-attack",
+            "security": "good",
+            "points": 10
+          },
+          {
+            "text": "Prøv selv at fjerne de mistænkelige programmer",
+            "next": "attempt-fix",
+            "security": "neutral",
+            "points": -5
+          }
+        ]
+      },
+  
+      "hand-over-it": {
+        "content": "Du afleverer USB-enheden til IT-afdelingen. De takker dig og fortæller, at ukendte USB-enheder kan være en alvorlig sikkerhedstrussel.",
+        "ending": "good",
+        "endingText": "Godt valg! Ved at aflevere enheden til IT beskytter du virksomheden mod potentielle trusler."
+      },
+  
+      "throw-away": {
+        "content": "Du smider USB-enheden ud. Selvom det fjerner truslen fra kontoret, går du også glip af muligheden for, at IT kunne have undersøgt og lært af situationen.",
+        "ending": "neutral",
+        "endingText": "Ikke det værste valg, men IT kunne have draget vigtig læring af enheden."
+      },
+  
+      "ignore-issues": {
+        "content": "Du ignorerer de mistænkelige aktiviteter. Senere viser det sig, at malware fra USB'en spredte sig til virksomhedens netværk.",
+        "ending": "bad",
+        "endingText": "Et alvorligt brud på datasikkerheden kunne have været undgået, hvis du havde reageret hurtigt."
+      },
+  
+      "contact-it-after-attack": {
+        "content": "Du kontakter straks IT, som isolerer din computer og stopper malware-spredningen.",
+        "ending": "neutral",
+        "endingText": "Godt at reagere hurtigt! Dog kunne situationen være undgået helt ved ikke at tilslutte en ukendt USB-enhed."
+      },
+  
+      "attempt-fix": {
+        "content": "Du prøver selv at fjerne de mistænkelige programmer, men malware'en forbliver skjult og aktiv.",
+        "ending": "bad",
+        "endingText": "At prøve at løse problemet selv uden professionel hjælp øgede risikoen for alvorlig skade. Kontakt altid IT ved sikkerhedstrusler."
+      }
+    }
+}  
