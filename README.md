@@ -1,1 +1,6 @@
 # SecureOS
+SecureOS er et interaktivt læringsmiljø designet som et simuleret operativsystem, der formidler viden om datasikkerhed. Projektet fokuserer på tre kritiske sikkerhedsområder: håndtering af personlige oplysninger, phishing og sikker webnavigation samt fysisk enhedssikkerhed (ukendte USB-enheder).
+
+Systemet består af fem integrerede apps: Pathfinder, Inlook Mail og Foxfire Browser præsenterer branching scenarios, hvor brugernes valg fører til forskellige konsekvenser og slutninger. Security Center giver brugeren overblik over sikkerhedshandlinger, viser en dynamisk sikkerhedsscore og tilbyder personlige anbefalinger baseret på brugerens adfærd. Noter-appen indeholder uddybende information om forskellige datasikkerhedsemner som stærke adgangskoder og phishing-genkendelse.
+
+Alle brugervalg gemmes i localStorage, hvilket muliggør persistens af data mellem sessioner og tillader brugeren at se konsekvenserne af tidligere beslutninger. Scenariedata er opbevaret i separate JSON-filer, som JavaScript-koden dynamisk indlæser og fortolker. Implementeringen benytter SCSS med variabler, mixins og nesting for responsivt design, samt modulær JavaScript til vindues- og scenariehåndtering, datalagring og dynamisk brugerinteraktion.
