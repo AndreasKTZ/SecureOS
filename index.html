@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureOS</title>
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="assets/hugeicons/hugeicons-font.css">
+    
+    <!-- Core Scripts -->
+    <script src="js/core/windowManager.js"></script>
+    <script src="js/core/responsiveHandler.js"></script>
+    <script src="js/core/storageManager.js"></script>
+    <script src="js/core/introScreen.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="js/apps/browserApp.js"></script>
+    <script src="js/apps/fileManagerApp.js"></script>
+    <script src="js/apps/mailApp.js"></script>
+    <script src="js/apps/notesApp.js"></script>
+    <script src="js/apps/securityCenterApp.js"></script>
+    
+    <!-- Scenario Scripts -->
+    <script src="js/scenarios/scenarioLoader.js"></script>
+    <script src="js/scenarios/scenarioRenderer.js"></script>
+    <script src="js/scenarios/scenarioHandler.js"></script>
+    
+    <!-- Utility Scripts -->
+    <script src="js/utils/utils.js"></script>
+    
+    <!-- Main Script (last to initialize everything) -->
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <!-- Intro Overlay -->
+    <div class="intro-overlay" id="intro-overlay">
+        <div class="intro-content">
+            <h1>Velkommen til SecureOS</h1>
+            
+            <div class="intro-section">
+                <h2>Hvad er SecureOS?</h2>
+                <p>SecureOS er en interaktiv sikkerhedstræningsplatform, der hjælper dig med at forstå og håndtere almindelige sikkerhedsudfordringer i den digitale verden. Gennem realistiske scenarier lærer du at identificere og reagere på potentielle sikkerhedstrusler.</p>
+            </div>
+
+            <div class="intro-section">
+                <h2>Sådan bruger du SecureOS</h2>
+                <ul>
+                    <li>Start med at åbne Pathfinder-appen for at begynde din første sikkerhedstræning</li>
+                    <li>Udforsk forskellige apps på skrivebordet for at opleve realistiske sikkerhedsscenarier</li>
+                    <li>Få øjeblikkelig feedback på dine handlinger og beslutninger i hvert scenarie</li>
+                </ul>
+            </div>
+
+            <div class="intro-section">
+                <h2>Lær og følg din fremgang</h2>
+                <ul>
+                    <li>Besøg Security Center for at se din samlede sikkerhedsstatus og få personlige anbefalinger</li>
+                    <li>Læs Noter-appen for at få dybere indsigt i sikkerhedsemner og bedste praksis</li>
+                    <li>Tag dig tid til at overveje dine handlinger i hvert scenarie</li>
+                </ul>
+            </div>
+
+            <div class="intro-actions">
+                <button id="start-secureos">Start din træning</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="desktop">
+        <!-- Window overlay -->
+        <div class="window-overlay"></div>
+        
+        <!-- File Manager Window -->
+        <div class="app-window file-manager" id="file-manager-window">
+            <div class="app-window-header">
+                <div class="window-title">
+                    <i class="hgi hgi-solid hgi-folder-02" style="color: #FFC300;"></i>
+                    <span>Pathfinder</span>
+                </div>
+                <div class="window-controls">
+                    <button class="minimize-btn"><i class="hgi hgi-stroke hgi-remove-01"></i></button>
+                    <button class="maximize-btn"><i class="hgi hgi-stroke hgi-square"></i></button>
+                    <button class="close-btn"><i class="hgi hgi-stroke hgi-cancel-01"></i></button>
+                </div>
+            </div>
+            <div class="app-window-content">
+                <div class="file-manager-sidebar">
+                    <div class="sidebar-section">
+                        <div class="sidebar-item active">
+                            <i class="hgi hgi-solid hgi-home-11"></i>
+                            <span>Hjem</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <i class="hgi hgi-solid hgi-cloud"></i>
+                            <span>Cloud</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <div class="sidebar-item">
+                            <i class="hgi hgi-solid hgi-aspect-ratio" style="color: #8B5CF6;"></i>
+                            <span>Skrivebord</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <i class="hgi hgi-solid hgi-download-01" style="color: #44C85C;"></i>
+                            <span>Overførsler</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <i class="hgi hgi-solid hgi-files-01" style="color: #00D9FF;"></i>
+                            <span>Dokumenter</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <i class="hgi hgi-solid hgi-image-01" style="color: #00AAFF;"></i>
+                            <span>Billeder</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <div class="sidebar-item">
+                            <i class="hgi hgi-solid hgi-folder-01" style="color: #FFC300;"></i>
+                            <span>Præsentationer</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <i class="hgi hgi-solid hgi-folder-01" style="color: #FFC300;"></i>
+                            <span>Mødenoter</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <i class="hgi hgi-solid hgi-folder-01" style="color: #FFC300;"></i>
+                            <span>Faktura Q1</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <div class="sidebar-item">
+                            <i class="hgi hgi-solid hgi-computer" style="color: #FFFFFF;"></i>
+                            <span>Denne PC</span>
+                        </div>
+                        <div class="sidebar-item" data-scenario="unknown-usb" data-container=".file-manager-content">
+                            <i class="hgi hgi-solid hgi-usb-memory-01" style="color: #FFFFFF;"></i>
+                            <span>USB_ENHED</span>
+                            <i class="hgi hgi-solid hgi-alert-02" style="color: #FFC300; margin-left: auto;"></i>
+                        </div>                                                
+                    </div>
+                </div>
+                
+                <div class="file-manager-content">
+                    <!-- Empty content area or files will go here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Mail App Window -->
+        <div class="app-window mail-app" id="mail-app-window">
+            <div class="app-window-header">
+                <div class="window-title">
+                    <i class="hgi hgi-solid hgi-mail-02" style="color: #00AAFF;"></i>
+                    <span>Inlook Mail</span>
+                </div>
+                <div class="window-controls">
+                    <button class="minimize-btn"><i class="hgi hgi-stroke hgi-remove-01"></i></button>
+                    <button class="maximize-btn"><i class="hgi hgi-stroke hgi-square"></i></button>
+                    <button class="close-btn"><i class="hgi hgi-stroke hgi-cancel-01"></i></button>
+                </div>
+            </div>
+            <div class="app-window-content">
+                <div class="mail-list">
+                    <div class="mail-item unread" data-scenario="personal-info" data-container="#scenario-container">
+                        <div class="mail-sender">Personalekontoret</div>
+                        <div class="mail-subject">VIGTIGT! Opdater dine personaleoplysninger</div>
+                        <div class="mail-preview">Kære medarbejder, vi har brug for, at...</div>
+                        <div class="mail-time">Ulæst</div>
+                    </div>                      
+                    <div class="mail-item">
+                        <div class="mail-sender">IT-support</div>
+                        <div class="mail-subject">Printeren i lokale 3A virker igen</div>
+                        <div class="mail-preview">Hej, fejlen er nu rettet, og printeren er...</div>
+                        <div class="mail-time">fr. 14:26</div>
+                    </div>
+                    <div class="mail-item">
+                        <div class="mail-sender">Kantinen</div>
+                        <div class="mail-subject">Frokostvalg – uge 18</div>
+                        <div class="mail-preview">Vælg dine retter for næste uge senest...</div>
+                        <div class="mail-time">to. 8:15</div>
+                    </div>
+                    <div class="mail-item">
+                        <div class="mail-sender">HR-afdeling</div>
+                        <div class="mail-subject">Mødenoter fra mandagens teammøde</div>
+                        <div class="mail-preview">Se vedhæftede PDF for beslutninger...</div>
+                        <div class="mail-time">on. 11:30</div>
+                    </div>
+                    <div class="mail-item">
+                        <div class="mail-sender">Password Manager</div>
+                        <div class="mail-subject">Påmindelse: Dit kodeord udløber</div>
+                        <div class="mail-preview">Kære medarbejder, vi har brug for, at...</div>
+                        <div class="mail-time">on. 10:02</div>
+                    </div>
+                </div>
+                <div class="mail-content">
+                    <div class="scenario-container" id="scenario-container">
+                        <!-- Scenario content will be loaded here -->
+                        <div class="placeholder-message">
+                            <p>Vælg en mail for at se indholdet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Browser App Window -->
+        <div class="app-window browser-app" id="browser-app-window">
+            <div class="app-window-header">
+                <div class="window-title">
+                    <i class="hgi hgi-solid hgi-globe-02" style="color: #44C85C;"></i>
+                    <span>Foxfire Browser</span>
+                </div>
+                <div class="window-controls">
+                    <button class="minimize-btn"><i class="hgi hgi-stroke hgi-remove-01"></i></button>
+                    <button class="maximize-btn"><i class="hgi hgi-stroke hgi-square"></i></button>
+                    <button class="close-btn"><i class="hgi hgi-stroke hgi-cancel-01"></i></button>
+                </div>
+            </div>
+            <div class="app-window-content">
+                <div class="browser-toolbar">
+                    <div class="browser-actions">
+                        <button class="browser-action-btn" title="Tilbage">
+                            <i class="hgi hgi-stroke hgi-arrow-left-01"></i>
+                        </button>
+                        <button class="browser-action-btn" title="Frem">
+                            <i class="hgi hgi-stroke hgi-arrow-right-01"></i>
+                        </button>
+                        <button class="browser-action-btn" title="Opdater">
+                            <i class="hgi hgi-solid hgi-reload"></i>
+                        </button>
+                    </div>
+                    <div class="browser-address-bar">
+                        <i class="hgi hgi-solid hgi-square-lock-01" style="color: #C84444;"></i>
+                        <span class="url-text">https://</span>
+                    </div>
+                    <div class="browser-extras">
+                        <button class="browser-action-btn" title="Bogmærker">
+                            <i class="hgi hgi-solid hgi-bookmark-02"></i>
+                        </button>
+                        <button class="browser-action-btn" title="Indstillinger">
+                            <i class="hgi hgi-stroke hgi-more-vertical-circle-02"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="browser-content">
+                    <div class="scenario-container" id="browser-scenario-container">
+                        <!-- Scenario content will be loaded here -->
+                        <div class="placeholder-message">
+                            <p>Vælg en webside-scenarie for at starte</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Center App Window -->
+        <div class="app-window security-center" id="security-center-window">
+            <div class="app-window-header">
+                <div class="window-title">
+                    <i class="hgi hgi-solid hgi-dashboard-speed-01" style="color: #00D9FF;"></i>
+                    <span>Security Center</span>
+                </div>
+                <div class="window-controls">
+                    <button class="minimize-btn"><i class="hgi hgi-stroke hgi-remove-01"></i></button>
+                    <button class="maximize-btn"><i class="hgi hgi-stroke hgi-square"></i></button>
+                    <button class="close-btn"><i class="hgi hgi-stroke hgi-cancel-01"></i></button>
+                </div>
+            </div>
+            <div class="app-window-content">
+                <div class="security-center-container">
+                    <!-- Security Score Section -->
+                    <div class="security-score-panel">
+                        <div class="security-level-display">
+                            <h2>Sikkerhedsscore</h2>
+                            <div class="gauge-display">
+                                <svg id="security-gauge" width="130" height="130" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" fill="none" stroke="#222" stroke-width="10" />
+                                    <circle id="gauge-arc" cx="50" cy="50" r="45" fill="none" stroke="#44C85C" stroke-width="10" stroke-linecap="round" stroke-dasharray="282.743" stroke-dashoffset="282.743" transform="rotate(-90 50 50)"/>
+                                    <text id="gauge-percentage" x="50" y="52" text-anchor="middle" font-size="34" fill="#fff" font-weight="bold" dominant-baseline="middle">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="security-summary">
+                            <h3>Sikkerhedsstatus</h3>
+                            <p id="security-summary-text">Din sikkerhedsstatus vil blive vist her efter du har gennemført sikkerhedsscenarier.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Activity Section -->
+                    <div class="recent-activity-panel">
+                        <h2>Seneste aktivitet</h2>
+                        <div class="activity-list" id="activity-list">
+                            <div class="activity-empty-state">
+                                <i class="hgi hgi-solid hgi-document-list"></i>
+                                <p>Ingen aktivitet endnu. Prøv at gennemføre et sikkerhedsscenarie.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recommendations Section -->
+                    <div class="recommendations-panel">
+                        <h2>Anbefalinger</h2>
+                        <div class="recommendations-list" id="recommendations-list">
+                            <div class="recommendation-item">
+                                <i class="hgi hgi-solid hgi-lamp-charge" style="color: #FFC300;"></i>
+                                <div class="recommendation-content">
+                                    <h4>Kom i gang</h4>
+                                    <p>Åbn mail-appen for at begynde at træne dine sikkerhedsfærdigheder.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes App Window -->
+        <div class="app-window notes-app" id="notes-app-window">
+            <div class="app-window-header">
+                <div class="window-title">
+                    <i class="hgi hgi-solid hgi-sticky-note-02" style="color: #C3FF00;"></i>
+                    <span>Noter</span>
+                </div>
+                <div class="window-controls">
+                    <button class="minimize-btn"><i class="hgi hgi-stroke hgi-remove-01"></i></button>
+                    <button class="maximize-btn"><i class="hgi hgi-stroke hgi-square"></i></button>
+                    <button class="close-btn"><i class="hgi hgi-stroke hgi-cancel-01"></i></button>
+                </div>
+            </div>
+            <div class="app-window-content">
+                <div class="notes-content"></div>
+            </div>
+        </div>
+        
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <div class="taskbar-left">
+                <button class="app-button" id="security-btn" data-label="Sikkerhedsniveau"><i class="hgi hgi-solid hgi-security-validation"></i></button>
+                <p>Ingen trusler</p>
+            </div>
+            <div class="taskbar-center">
+                <div class="main">
+                    <button class="app-button" id="home-btn" data-label="Start"><i class="hgi hgi-solid hgi-home-01" style="color: #FFFFFF;"></i></button>
+                    <button class="app-button" id="search-btn" data-label="Søgning"><i class="hgi hgi-solid hgi-search-01" style="color: #FFFFFF;"></i></button>
+                </div>
+                <div class="separator"></div>
+                <div class="apps">
+                    <button class="app-button" id="folder-app-btn" data-label="Pathfinder"><i class="hgi hgi-solid hgi-folder-02" style="color: #FFC300;"></i></button>
+                    <button class="app-button" id="mail-app-btn" data-label="Inlook"><i class="hgi hgi-solid hgi-mail-02" style="color: #00AAFF;"></i></button>
+                    <button class="app-button" id="browser-app-btn" data-label="Foxfire"><i class="hgi hgi-solid hgi-globe-02" style="color: #44C85C;"></i></button>
+                    <button class="app-button" id="security-center-btn" data-label="Security Center"><i class="hgi hgi-solid hgi-dashboard-speed-01" style="color: #00D9FF;"></i></button>
+                    <button class="app-button" id="notes-app-btn" data-label="Noter"><i class="hgi hgi-solid hgi-sticky-note-02" style="color: #C3FF00;"></i></button>
+                </div>
+                <div class="separator"></div>
+                <div class="project">
+                    <button class="app-button" id="github-btn" data-label="Gå til GitHub"><i class="hgi hgi-solid hgi-github-01" style="color: #FFFFFF;"></i></button>
+                    <button class="app-button" id="document-validation-btn" data-label="Download rapport"><i class="hgi hgi-solid hgi-document-validation" style="color: #FFFFFF;"></i></button>
+                    <button class="app-button" id="reload-btn" data-label="Nulstil"><i class="hgi hgi-solid hgi-reload" style="color: #FFFFFF;"></i></button>
+                </div>
+            </div>
+            <div class="taskbar-right">
+                <div class="info">
+                    <button class="app-button" id="upload-bg-btn" data-label="Skift baggrund"><i class="hgi hgi-stroke hgi-upload-02"></i></button>
+                    <button class="app-button" id="wifi-btn" data-label="Wi-Fi"><i class="hgi hgi-stroke hgi-wifi-02"></i></button>
+                    <button class="app-button" id="volume-btn" data-label="Lydstyrke"><i class="hgi hgi-stroke hgi-volume-high"></i></button>
+                    <p class="taskbar-time">Indlæser...</p>
+                </div>
+                <div class="alerts">
+                    <button class="app-button" id="notification-btn" data-label="Notifikationer"><i class="hgi hgi-solid hgi-notification-02"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
